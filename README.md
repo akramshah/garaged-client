@@ -1,1 +1,1 @@
-Garaged-app cli
+Garaged-app client.
