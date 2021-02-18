@@ -22,7 +22,7 @@ export const indexCars = (user) => {
   })
 }
 
-export const indexCar = (user) => {
+export const showCar = (user) => {
   return axios({
     url: apiUrl + '/car/',
     method: 'GET',

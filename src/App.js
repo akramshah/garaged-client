@@ -10,6 +10,11 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
+import CreateCar from './components/Cars/CreateCar'
+import ShowCar from './components/Cars/ShowCar'
+import IndexCar from './components/Cars/IndexCars'
+import UpdateCar from './components/Cars/UpdateCar'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -64,6 +69,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/cars' render={() => (
+            <IndexCar msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/cars/:name' render={() => (
+            <ShowCar msgAlert={this.msgAlert} user={user} clearCar={this.clearCar} />
+          )} />
+          <AuthenticatedRoute user={user} path='/car/create' render={() => (
+            <CreateCar msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/car/edit' render={() => (
+            <UpdateCar msgAlert={this.msgAlert} user={user} setCar={this.setCar} />
           )} />
         </main>
       </Fragment>
