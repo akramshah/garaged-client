@@ -1,6 +1,6 @@
 {
   "name": "garaged-client",
-  "homepage": "https://<USERNAME>.github.io/<REPO NAME>",
+  "homepage": "https://akramshah.github.io/garaged-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
