@@ -12,7 +12,6 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 
 import CreateCar from './components/Cars/CreateCar'
 import Garage from './components/Cars/Garage'
-import IndexCar from './components/Cars/IndexCars'
 import UpdateCar from './components/Cars/UpdateCar'
 
 class App extends Component {
@@ -70,17 +69,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/cars' render={() => (
-            <IndexCar msgAlert={this.msgAlert} user={user} />
-          )} />
           <AuthenticatedRoute user={user} path='/garage' render={() => (
             <Garage msgAlert={this.msgAlert} user={user}/>
           )} />
           <AuthenticatedRoute user={user} path='/car/create' render={() => (
             <CreateCar msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/car/edit' render={() => (
-            <UpdateCar msgAlert={this.msgAlert} user={user} setCar={this.setCar} />
+          <AuthenticatedRoute user={user} path='/cars/update/:id' render={() => (
+            <UpdateCar msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

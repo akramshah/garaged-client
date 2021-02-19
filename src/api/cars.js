@@ -32,9 +32,9 @@ export const showCar = (user) => {
   })
 }
 
-export const updateCar = (car, user) => {
+export const updateCar = (id, car, user) => {
   return axios({
-    url: apiUrl + '/cars/',
+    url: apiUrl + '/cars/' + id,
     method: 'PATCH',
     headers: {
       'Authorization': `Token ${user.token}`

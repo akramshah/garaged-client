@@ -87,7 +87,7 @@ class Garage extends Component {
         <p>Mileage: {car.mileage}</p>
         <Button className='primary' variant="primary" onClick={() => this.handleDelete(car.id)}>Delete Car</Button>
         <Button className='primary' variant="primary">
-          <Link to={'/cars/update'}>Update Car</Link>
+          <Link to={`/cars/update/${car.id}`}>Update Car</Link>
         </Button>
       </div>
     ))
