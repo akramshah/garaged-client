@@ -3,14 +3,14 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#garage">Garage</Nav.Link>
-    <Nav.Link href="#cars">Cars</Nav.Link>
+    <Nav.Link>Settings</Nav.Link>
     <NavDropdown id="basic-nav-dropdown">
-      <NavDropdown.Item href="#profile/create">Add Car</NavDropdown.Item>
+      <NavDropdown.Item href="#car/create">Add Car</NavDropdown.Item>
       <NavDropdown.Item href="#change-password">Change Password</NavDropdown.Item>
       <NavDropdown.Divider />
       <NavDropdown.Item href="#sign-out">Sign Out</NavDropdown.Item>
     </NavDropdown>
+    <Nav.Link href="#garage">Garage</Nav.Link>
   </Fragment>
 )
 

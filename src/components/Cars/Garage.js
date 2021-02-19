@@ -1,21 +1,25 @@
 import React, { Component, Fragment } from 'react'
-import { withRouter, Redirect, Link } from 'react-router-dom'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-import { showCar, deleteCar } from '../../api/cars'
+import { indexCars, deleteCar } from '../../api/cars'
+import Spinner from 'react-bootstrap/Spinner'
 
-class CarShow extends Component {
+class Garage extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      car: null,
+      cars: [],
       deleted: false
     }
   }
 
   componentDidMount () {
-    const { user, match, msgAlert } = this.props
-    showCar(match.params.name, user)
-      .then(res => this.setState({ car: res.data.car }))
+    const { user, msgAlert } = this.props
+    indexCars(user)
+      .then(res => {
+        return res
+      })
+      .then(res => this.setState({ cars: res.data.cars }))
       .then(() => msgAlert({
         heading: 'Welcome',
         message: 'Here are all the cars in your garage.',
@@ -48,41 +52,41 @@ class CarShow extends Component {
       })
   }
   render () {
-    const { car, deleted } = this.state
-    const { user, msgAlert } = this.props
-    if (!car) {
+    const { cars, deleted } = this.state
+    if (!cars) {
       return (
-        msgAlert({
-          heading: 'Error',
-          message: 'No cars in your garage. Please add a car.',
-          variant: 'Danger'
-        })
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
       )
     }
     if (deleted) {
-      return <Redirect to="/car/" />
+      return <Redirect to="/garage" />
     }
-    const buttonsJsx = (
-      <div>
+    // const buttonsJsx = (
+    //   <div>
+
+    //   </div>
+    // )
+    const carJsx = cars.map(car => (
+      <div key={car.id}>
+        <p>Name: {car.name}</p>
+        <p>Year: {car.year}</p>
+        <p>Mileage: {car.mileage}</p>
         <Button className='primary' variant="primary" onClick={this.handleDelete}>Delete Car</Button>
         <Button className='primary' variant="primary">
-          <Link to={'/profile/update'}>Update Profile</Link>
+          <Link to={'/cars/update'}>Update Car</Link>
         </Button>
       </div>
-    )
+    ))
     return (
       <Fragment>
         <div className="displayCar">
-          <p>
-            Name: {car.name}
-            Year: {car.year}
-            Mileage: {car.mileage}
-          </p>
-          { user._id === car.owner && buttonsJsx }
+          { carJsx }
         </div>
       </Fragment>
     )
   }
 }
 
-export default withRouter(CarShow)
+export default withRouter(Garage)

@@ -2,9 +2,9 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const CarForm = ({ car, handleSubmit, handleChange }) => (
+const CarForm = ({ car, handleChange, handleSubmit }) => (
   <Form className="showCar"
-    Submit={handleSubmit}>
+    onSubmit={handleSubmit}>
     <Form.Group>
       <Form.Label>Name</Form.Label>
       <Form.Control className= "input"
@@ -28,7 +28,7 @@ const CarForm = ({ car, handleSubmit, handleChange }) => (
       <Form.Control
         placeholder='Enter the mileage'
         name='mileage'
-        value='car.mileage'
+        value={car.mileage}
         onChange={handleChange}
       />
       <Button className='primary' variant='primary' type='submit'>

@@ -50,14 +50,14 @@ class CarCreate extends Component {
     event.persist()
     this.setState(state => {
       return {
-        car: { ...state.car, [event.target]: event.target.value }
+        car: { ...state.car, [event.target.name]: event.target.value }
       }
     })
   }
   render () {
     const { car, created } = this.state
     if (created) {
-      return <Redirect to={`/cars/${car.name}`} />
+      return <Redirect to={'/garage'} />
     }
     return (
       <Fragment>
