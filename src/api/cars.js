@@ -24,7 +24,7 @@ export const indexCars = (user) => {
 
 export const showCar = (user) => {
   return axios({
-    url: apiUrl + '/car/',
+    url: apiUrl + '/cars/',
     method: 'GET',
     headers: {
       'Authorization': `Token ${user.token}`
@@ -34,7 +34,7 @@ export const showCar = (user) => {
 
 export const updateCar = (car, user) => {
   return axios({
-    url: apiUrl + '/car/',
+    url: apiUrl + '/cars/',
     method: 'PATCH',
     headers: {
       'Authorization': `Token ${user.token}`
@@ -43,9 +43,9 @@ export const updateCar = (car, user) => {
   })
 }
 
-export const deleteCar = user => {
+export const deleteCar = (id, user) => {
   return axios({
-    url: apiUrl + '/car/',
+    url: apiUrl + '/cars/' + id,
     method: 'DELETE',
     headers: {
       'Authorization': `Token ${user.token}`

@@ -9,7 +9,8 @@ class Garage extends Component {
     super(props)
     this.state = {
       cars: [],
-      deleted: false
+      deleted: false,
+      carId: ''
     }
   }
 
@@ -33,16 +34,32 @@ class Garage extends Component {
         })
       })
   }
-  handleDelete = event => {
-    const { user, msgAlert, clearCar } = this.props
-    deleteCar(user)
+
+  componentDidUpdate () {
+    const { user, msgAlert } = this.props
+    indexCars(user)
+      .then(res => {
+        return res
+      })
+      .then(res => this.setState({ cars: res.data.cars }))
+      .catch(error => {
+        msgAlert({
+          heading: 'No cars to display.',
+          message: 'Please add a car to your garage. Error: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
+
+  handleDelete = (id) => {
+    const { user, msgAlert } = this.props
+    deleteCar(id, user)
       .then(() => this.setState({ deleted: true }))
       .then(() => msgAlert({
         heading: 'Success',
         message: 'Car deleted successfully.',
         variant: 'success'
       }))
-      .then(() => clearCar())
       .catch(error => {
         msgAlert({
           heading: 'Error',
@@ -61,19 +78,14 @@ class Garage extends Component {
       )
     }
     if (deleted) {
-      return <Redirect to="/garage" />
+      return <Redirect to="/home" />
     }
-    // const buttonsJsx = (
-    //   <div>
-
-    //   </div>
-    // )
     const carJsx = cars.map(car => (
       <div key={car.id}>
         <p>Name: {car.name}</p>
         <p>Year: {car.year}</p>
         <p>Mileage: {car.mileage}</p>
-        <Button className='primary' variant="primary" onClick={this.handleDelete}>Delete Car</Button>
+        <Button className='primary' variant="primary" onClick={() => this.handleDelete(car.id)}>Delete Car</Button>
         <Button className='primary' variant="primary">
           <Link to={'/cars/update'}>Update Car</Link>
         </Button>
