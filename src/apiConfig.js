@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://garaged-api.herokuapp.com/',
+  production: 'https://garaged-api.herokuapp.com',
   development: 'http://localhost:8000'
 }
 
