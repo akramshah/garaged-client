@@ -34,19 +34,6 @@ class Garage extends Component {
       })
   }
 
-  componentDidUpdate () {
-    const { user, msgAlert } = this.props
-    indexCars(user)
-      .then(res => this.setState({ cars: res.data.cars }))
-      .catch(error => {
-        msgAlert({
-          heading: 'No cars to display.',
-          message: 'Please add a car to your garage. Error: ' + error.message,
-          variant: 'danger'
-        })
-      })
-  }
-
   handleDelete = (id) => {
     const { user, msgAlert } = this.props
     deleteCar(id, user)
@@ -74,7 +61,7 @@ class Garage extends Component {
       )
     }
     if (deleted) {
-      return <Redirect to="/" />
+      return <Redirect to="/confirmation" />
     }
     const carJsx = cars.map(car => (
       <div key={car.id}>
