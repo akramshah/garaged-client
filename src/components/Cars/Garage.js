@@ -78,7 +78,7 @@ class Garage extends Component {
       )
     }
     if (deleted) {
-      return <Redirect to="/home" />
+      return <Redirect to="/" />
     }
     const carJsx = cars.map(car => (
       <div key={car.id}>
