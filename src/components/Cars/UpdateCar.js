@@ -48,7 +48,7 @@ class CarUpdate extends Component {
     render () {
       const { car, updated } = this.state
       if (updated) {
-        return <Redirect to={'/home'} />
+        return <Redirect to={'/confirmation'} />
       }
 
       return (

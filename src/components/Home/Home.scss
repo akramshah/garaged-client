@@ -1,0 +1,28 @@
+.jumbotron {
+  background-color: #f2a413;
+  max-width: 380px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.img {
+  max-width: 300px;
+  align-self: right;
+}
+
+button {
+  align-self: center;
+}
+
+p {
+  max-width: 300px;
+  margin: 10px;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-family: Kaufmann;
+}

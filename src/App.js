@@ -11,6 +11,7 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
 import Home from './components/Home/Home'
+import Confirmation from './components/Confirmation/Confirmation'
 
 import CreateCar from './components/Cars/CreateCar'
 import Garage from './components/Cars/Garage'
@@ -61,6 +62,12 @@ class App extends Component {
         <main className="container">
           <Route exact path='/' render={() => (
             <Home
+              msgAlert={this.msgAlert}
+              user={user}
+            />
+          )} />
+          <Route exact path='/confirmation' render={() => (
+            <Confirmation
               msgAlert={this.msgAlert}
               user={user}
             />

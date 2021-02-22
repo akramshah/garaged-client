@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 import { Jumbotron, Button } from 'react-bootstrap'
+import './Home.scss'
 
 const Home = () => (
   <Fragment>
-    <div className="container" style={{ marginTop: '50px' }} >
+    <div className="jumbotron" >
       <Jumbotron style={{ backgroundColor: '#f2eddc' }} >
         <h1>Garaged</h1>
         <p>
@@ -16,9 +17,10 @@ const Home = () => (
           Sign-up
           </Button>
           <Button style={{ backgroundColor: '#1c3059', border: 'none' }} href="#sign-in" variant="primary">
-          Sign-In
+          Sign-in
           </Button>
         </p>
+        <img src = 'carhome.png' className="img"></img>
       </Jumbotron>
     </div>
   </Fragment>

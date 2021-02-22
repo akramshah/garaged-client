@@ -32,7 +32,7 @@ const CarForm = ({ car, handleChange, handleSubmit }) => (
         onChange={handleChange}
       />
       <Button style= {{ marginTop: '20px' }} className='primary' variant='primary' type='submit'>
-    Add Car
+    Submit
       </Button>
     </Form.Group>
   </Form>

@@ -19,9 +19,6 @@ class Garage extends Component {
   componentDidMount () {
     const { user, msgAlert } = this.props
     indexCars(user)
-      .then(res => {
-        return res
-      })
       .then(res => this.setState({ cars: res.data.cars }))
       .then(() => msgAlert({
         heading: 'Welcome',
@@ -40,9 +37,6 @@ class Garage extends Component {
   componentDidUpdate () {
     const { user, msgAlert } = this.props
     indexCars(user)
-      .then(res => {
-        return res
-      })
       .then(res => this.setState({ cars: res.data.cars }))
       .catch(error => {
         msgAlert({
@@ -75,7 +69,7 @@ class Garage extends Component {
     if (!cars) {
       return (
         <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
+          <span className="sr-only">Add A Car!</span>
         </Spinner>
       )
     }
