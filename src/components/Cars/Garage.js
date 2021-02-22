@@ -3,6 +3,8 @@ import { withRouter, Link, Redirect } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { indexCars, deleteCar } from '../../api/cars'
 import Spinner from 'react-bootstrap/Spinner'
+import Card from 'react-bootstrap/Card'
+import './Garage.scss'
 
 class Garage extends Component {
   constructor (props) {
@@ -82,13 +84,20 @@ class Garage extends Component {
     }
     const carJsx = cars.map(car => (
       <div key={car.id}>
-        <p>Name: {car.name}</p>
-        <p>Year: {car.year}</p>
-        <p>Mileage: {car.mileage}</p>
-        <Button className='primary' variant="primary" onClick={() => this.handleDelete(car.id)}>Delete Car</Button>
-        <Button className='primary' variant="primary">
-          <Link to={`/cars/update/${car.id}`}>Update Car</Link>
-        </Button>
+        <Card className="garagecard" style={{ width: '18rem' }}>
+          <Card.Img variant="top" className="img-size" src={'card.png'} />
+          <Card.Body>
+            <Card.Title><h6>{car.name}</h6></Card.Title>
+            <Card.Text>
+              <p>Year: {car.year}</p>
+              <p>Mileage: {car.mileage}</p>
+            </Card.Text>
+            <Button className='primary' variant="primary" onClick={() => this.handleDelete(car.id)}>Delete Car</Button>
+            <Button className='primary' variant="primary">
+              <Link style={{ color: '#fff' }} to={`/cars/update/${car.id}`}>Update Car</Link>
+            </Button>
+          </Card.Body>
+        </Card>
       </div>
     ))
     return (

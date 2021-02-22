@@ -8,9 +8,6 @@ class CarUpdate extends Component {
     super(props)
     this.state = {
       car: {
-        name: '',
-        year: '',
-        mileage: ''
       },
       updated: false
     }
@@ -56,7 +53,7 @@ class CarUpdate extends Component {
 
       return (
         <Fragment>
-          <h3>Update Car</h3>
+          <h3 style={{ marginTop: '20px' }}>Update Car</h3>
           <CarForm
             car={car}
             handleChange={this.handleChange}

@@ -87,7 +87,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
+            <Button style={{ backgroundColor: '#1c3059', border: 'none' }}
               variant="primary"
               type="submit"
             >

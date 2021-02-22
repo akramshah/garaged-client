@@ -1,0 +1,17 @@
+.displayCar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.garagecard {
+  margin: 30px 50px 10px 10px;
+  background-color: #f2eddc;
+}
+
+.primary {
+  margin-right: 15px;
+  background-color: #1c3059;
+  border: none;
+  color: #f2eddc;
+}

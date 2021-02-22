@@ -1,1 +1,20 @@
+$success: #f2eddc;
+$danger: #bf213e;
+
 @import '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: Neutra;
+  src: url("/public/Neutra-Demi.ttf");
+}
+
+@font-face {
+  font-family: Kaufmann;
+  src: url("/public/Kaufmann.ttf");
+}
+
+
+body {
+  background-color: #f2a413;
+  font-family: Neutra;
+}

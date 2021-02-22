@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const CarForm = ({ car, handleChange, handleSubmit }) => (
-  <Form className="showCar"
+  <Form style= {{ marginTop: '20px' }} className="showCar"
     onSubmit={handleSubmit}>
     <Form.Group>
       <Form.Label>Name</Form.Label>
@@ -31,7 +31,7 @@ const CarForm = ({ car, handleChange, handleSubmit }) => (
         value={car.mileage}
         onChange={handleChange}
       />
-      <Button className='primary' variant='primary' type='submit'>
+      <Button style= {{ marginTop: '20px' }} className='primary' variant='primary' type='submit'>
     Add Car
       </Button>
     </Form.Group>
